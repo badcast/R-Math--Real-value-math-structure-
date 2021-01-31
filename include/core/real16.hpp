@@ -1,12 +1,9 @@
 #pragma once
 #include "core.hpp"
-#include "real24.hpp"
-#include "real32.hpp"
-#include "real8.hpp"
 
 namespace rmath {
 
-   typedef class real16 : public core::realbase<2> {
+   typedef class real16 : public core::realbase<0b0010> {
       public:
          real16();
          ~real16();

@@ -1,5 +1,4 @@
 #include "../../include/rmath.hpp"
-#include "../../include/core/real32.hpp"
 
 using namespace rmath;
 
@@ -43,10 +42,8 @@ real32::real32(const double& rhs)
     }
 }
 
-
-
 // operators
-real32::operator float() { return 0; }
+real32::operator float() { return static_cast<float>(this->operator double()); }
 real32::operator double() { return to_double(*this); }
 
 // signed section

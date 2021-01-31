@@ -1,4 +1,4 @@
-#include "../../include/core/real24.hpp"
+#include "../../include/rmath.hpp"
 
 using namespace rmath;
 

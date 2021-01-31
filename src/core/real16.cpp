@@ -1,8 +1,9 @@
-#include "../../include/core/real16.hpp"
+#include "../../include/rmath.hpp"
 
 using namespace rmath;
 
 real16::real16() {
+
 }
 
 real16::~real16() {}

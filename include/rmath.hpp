@@ -4,6 +4,7 @@
 
 #include <list>
 #include <cstdlib>
+#include <limits>
 
 #include "core/core.hpp"
 #include "core/operators.hpp"

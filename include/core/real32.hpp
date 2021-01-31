@@ -4,7 +4,7 @@
 
 namespace rmath {
 
-   typedef class real32 : public core::realbase<4> {
+   typedef class real32 : public core::realbase<0b0100> {
       public:
          int m;  // целое
          int p;  // числитель

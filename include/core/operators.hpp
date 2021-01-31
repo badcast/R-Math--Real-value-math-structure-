@@ -1,7 +1,6 @@
 #pragma once
 
-#include "../rmath.hpp"
-#include "core.hpp"
+#include <list>
 #include "real32.hpp"
 
 namespace rmath {

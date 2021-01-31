@@ -2,7 +2,6 @@
 #pragma once
 
 #include <cstdint>
-#include <limits>
 
 namespace rmath{
     namespace core{
@@ -11,7 +10,6 @@ namespace rmath{
            protected:
               int8_t _buffer[_size];
            public:
-            realbase();
 
             //operators
             virtual operator float()=0;

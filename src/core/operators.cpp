@@ -1,5 +1,3 @@
-#include "../../include/core/operators.hpp"
-
 #include "../../include/rmath.hpp"
 
 namespace rmath {
