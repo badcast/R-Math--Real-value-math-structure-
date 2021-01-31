@@ -8,9 +8,7 @@
 
 namespace rmath{
     //real8 contained void* type
-    class real8 : public core::realbase{
-        std::int8_t data[1]; //len 8 bits
-
+    class real8 : public core::realbase<1>{
         public:
             virtual operator float();
             virtual operator double();
@@ -27,6 +25,6 @@ namespace rmath{
             virtual operator std::uint32_t();
             virtual operator std::uint64_t();
              
-    } real8_t;
+    } real8_t, real_low_t;
     
 }
