@@ -11,6 +11,7 @@ namespace rmath {
          int q;  // знаменатель
 
          real32();
+         ~real32();
 
          real32(const int& m, const int& p, const int& q);
 
