@@ -43,8 +43,16 @@ real32::real32(const double& rhs)
 }
 
 // operators
+real32& real32::operator+=(const real32& rhs) { return *this = *this + rhs; }
+
+real32& real32::operator-=(const real32& rhs) { return *this = *this - rhs; }
+
+real32& real32::operator*=(const real32& rhs) { return *this = *this * rhs; }
+
+real32& real32::operator/=(const real32& rhs) { return *this = *this / rhs; }
+
 real32::operator float() { return static_cast<float>(this->operator double()); }
-real32::operator double() { return to_double(*this); }
+real32::operator double() { return func::to_double(*this); }
 
 // signed section
 real32::operator std::int8_t() { return 0; }
