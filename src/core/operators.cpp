@@ -4,13 +4,13 @@ namespace rmath {
    namespace func {
 
       // const value
-      const ::rmath::real_t minusOne = ::rmath::real_t(0, -1, 1);
-      const ::rmath::real_t zero = ::rmath::real_t(0, 0, 1);
-      const ::rmath::real_t one = ::rmath::real_t(0, 1, 1);
-      const ::rmath::real_t two = ::rmath::real_t(0, 2, 1);
-      const ::rmath::real_t NaN = ::rmath::real_t(0, 0, 0);
-      const ::rmath::real_t positiveInfinity{0, 1, 0};
-      const ::rmath::real_t negativeInfinity{0, -1, 0};
+      const ::rmath::real_t minusOne(0, -1, 1);
+      const ::rmath::real_t zero(0, 0, 1);
+      const ::rmath::real_t one(0, 1, 1);
+      const ::rmath::real_t two(0, 2, 1);
+      const ::rmath::real_t NaN(0, 0, 0);
+      const ::rmath::real_t positiveInfinity(0, 1, 0);
+      const ::rmath::real_t negativeInfinity(0, -1, 0);
 
       inline const rmath::real_t create(int p, int q, int c) { return {c, p, q}; }
       inline const rmath::real_t create(double rhs) {
