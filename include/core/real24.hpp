@@ -2,7 +2,7 @@
 #include "core.hpp"
 
 namespace rmath{
-    class real24 : public core::realbase<0b0011>{
+    typedef class real24 : public core::realbase<0b0011>{
         public: 
         real24();
         ~real24();
