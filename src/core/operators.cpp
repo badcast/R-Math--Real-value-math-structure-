@@ -1,18 +1,16 @@
 #include "../../include/rmath.hpp"
 
-
-
 namespace rmath {
-   namespace func{
+   namespace func {
 
       // const value
-      const ::rmath::real_t minusOne = { 0, -1, 1 };
-      const ::rmath::real_t zero     = { 0, 0, 1 };
-      const ::rmath::real_t one      = { 0, 1, 1 };
-      const ::rmath::real_t two      = { 0, 2, 1 };
-      const ::rmath::real_t NaN      = { 0, 0, 0 };
-      const ::rmath::real_t positiveInfinity { 0, 1, 0 };
-      const ::rmath::real_t negativeInfinity { 0, -1, 0 };
+      const ::rmath::real_t minusOne = ::rmath::real_t(0, -1, 1);
+      const ::rmath::real_t zero = ::rmath::real_t(0, 0, 1);
+      const ::rmath::real_t one = ::rmath::real_t(0, 1, 1);
+      const ::rmath::real_t two = ::rmath::real_t(0, 2, 1);
+      const ::rmath::real_t NaN = ::rmath::real_t(0, 0, 0);
+      const ::rmath::real_t positiveInfinity{0, 1, 0};
+      const ::rmath::real_t negativeInfinity{0, -1, 0};
 
       inline const rmath::real_t create(int p, int q, int c) { return {c, p, q}; }
       inline const rmath::real_t create(double rhs) {
@@ -36,7 +34,9 @@ namespace rmath {
 
       inline const bool is_inf(const rmath::real_t& v) { return !v.m && v.p && !v.q; }
 
-      inline const bool is_nan(const rmath::real_t& v) { return !v.m && !v.p && !v.q; }
+      inline const bool is_nan(const rmath::real_t& v) {
+         return !v.m && !v.p && !v.q;
+      }
 
       inline const bool is_int(const rmath::real_t& v, int value) {
          return !v.m && v.p == value && v.q == 1;
@@ -46,7 +46,9 @@ namespace rmath {
 
       inline const bool is_one(const rmath::real_t& v) { return is_int(v, 1); }
 
-      inline const bool right(const rmath::real_t& v) { return v.m == 0 && v.p < v.q; }
+      inline const bool right(const rmath::real_t& v) {
+         return v.m == 0 && v.p < v.q;
+      }
 
       inline const bool is_normalize(const rmath::real_t& v) { return !v.m; }
 
@@ -136,7 +138,8 @@ namespace rmath {
          return to_prime(v);
       }
 
-      inline const bool eq_lowest(const rmath::real_t& lhs, const rmath::real_t& rhs) {
+      inline const bool eq_lowest(const rmath::real_t& lhs,
+                                  const rmath::real_t& rhs) {
          return to_double(lhs) < to_double(rhs);
       }
 
@@ -169,7 +172,8 @@ namespace rmath {
       }
 
       // оператор умножения
-      inline const rmath::real_t mul(rmath::real_t lhs, rmath::real_t rhs, bool toPrime) {
+      inline const rmath::real_t mul(rmath::real_t lhs, rmath::real_t rhs,
+                                     bool toPrime) {
          lhs = normalize(lhs);
          rhs = normalize(rhs);
 
@@ -182,7 +186,8 @@ namespace rmath {
       }
 
       // оператор деления
-      inline const rmath::real_t div(rmath::real_t lhs, rmath::real_t rhs, bool toPrime) {
+      inline const rmath::real_t div(rmath::real_t lhs, rmath::real_t rhs,
+                                     bool toPrime) {
          lhs = normalize(lhs);
          rhs = normalize(rhs);
 
@@ -212,19 +217,23 @@ namespace rmath {
 
       // ----------------- operators
 
-      const rmath::real_t operator+(const rmath::real_t& lhs, const rmath::real_t& rhs) {
+      const rmath::real_t operator+(const rmath::real_t& lhs,
+                                    const rmath::real_t& rhs) {
          return add(lhs, rhs);
       }
 
-      const rmath::real_t operator-(const rmath::real_t& lhs, const rmath::real_t& rhs) {
+      const rmath::real_t operator-(const rmath::real_t& lhs,
+                                    const rmath::real_t& rhs) {
          return sub(lhs, rhs);
       }
 
-      const rmath::real_t operator/(const rmath::real_t& lhs, const rmath::real_t& rhs) {
+      const rmath::real_t operator/(const rmath::real_t& lhs,
+                                    const rmath::real_t& rhs) {
          return div(lhs, rhs);
       }
 
-      const rmath::real_t operator*(const rmath::real_t& lhs, const rmath::real_t& rhs) {
+      const rmath::real_t operator*(const rmath::real_t& lhs,
+                                    const rmath::real_t& rhs) {
          return mul(lhs, rhs, true);
       }
 
@@ -257,7 +266,6 @@ namespace rmath {
       const rmath::real_t operator/(const double& lhs, const rmath::real_t& rhs) {
          return rhs / lhs;
       }
-
 
       const bool operator==(const rmath::real_t& lhs, const rmath::real_t& rhs) {
          double num = to_double(lhs);
@@ -296,5 +304,5 @@ namespace rmath {
       const bool operator==(const double& lhs, const rmath::real_t& rhs) {
          return rhs == lhs;
       }
-   }  // namespace rmath
-}
+   }  // namespace func
+}  // namespace rmath

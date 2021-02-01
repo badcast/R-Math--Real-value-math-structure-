@@ -11,13 +11,13 @@ namespace rmath {
    namespace func {
       // const value
 
-      export const ::rmath::real_t minusOne;          // initialized in cpp file
-      export const ::rmath::real_t zero;              // initialized in cpp file
-      export const ::rmath::real_t one;               // initialized in cpp file
-      export const ::rmath::real_t two;               // initialized in cpp file
-      export const ::rmath::real_t NaN;               // initialized in cpp file
-      export const ::rmath::real_t positiveInfinity;  // initialized in cpp file
-      export const ::rmath::real_t negativeInfinity;  // initialized in cpp file
+      extern const ::rmath::real_t minusOne;          // initialized in cpp file
+      extern const ::rmath::real_t zero;              // initialized in cpp file
+      extern const ::rmath::real_t one;               // initialized in cpp file
+      extern const ::rmath::real_t two;               // initialized in cpp file
+      extern const ::rmath::real_t NaN;               // initialized in cpp file
+      extern const ::rmath::real_t positiveInfinity;  // initialized in cpp file
+      extern const ::rmath::real_t negativeInfinity;  // initialized in cpp file
 
       inline const rmath::real_t create(int p, int q, int c = 0);
       inline const rmath::real_t create(double rhs);

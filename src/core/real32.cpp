@@ -32,9 +32,9 @@ real32::real32(const uint64_t& rhs)
 real32::real32(const double& rhs)
 {
    if (rhs == std::numeric_limits<double>::infinity()) {
-      *this = positiveInfinity;
+      *this = rmath::func::positiveInfinity;
    } else if (rhs == -std::numeric_limits<double>::infinity()) {
-      *this = negativeInfinity;
+      *this = rmath::func::negativeInfinity;
    } else {
       m = 0;
       p = int(rhs * 1000) - int(rhs * 100);
