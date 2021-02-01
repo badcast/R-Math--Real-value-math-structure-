@@ -39,7 +39,7 @@ real32::real32(const double& rhs)
       m = 0;
       p = int(rhs * 1000) - int(rhs * 100);
       q = 900;
-      *this = to_prime(*this);
+      *this = toPrime(*this);
    }
 }
 

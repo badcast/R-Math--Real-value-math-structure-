@@ -23,7 +23,7 @@ namespace rmath {
             v.m = 0;
             v.p = int(rhs * 1000) - int(rhs * 100);
             v.q = 900;
-            v = to_prime(v);
+            v = toPrime(v);
          }
          return v;
       }
@@ -119,7 +119,7 @@ namespace rmath {
          return lhs;
       }
 
-      inline const rmath::real_t to_prime(rmath::real_t v) {
+      inline const rmath::real_t toPrime(rmath::real_t v) {
          auto nod = NOD(abs(v.p), abs(v.q));
          if (nod > 1) {
             v.p = v.p / static_cast<int>(nod);
@@ -135,7 +135,7 @@ namespace rmath {
             v.p = v.m * v.q + v.p;
             v.m = 0;
          }
-         return to_prime(v);
+         return toPrime(v);
       }
 
       inline const bool eq_lowest(const rmath::real_t& lhs,
@@ -173,21 +173,21 @@ namespace rmath {
 
       // оператор умножения
       inline const rmath::real_t mul(rmath::real_t lhs, rmath::real_t rhs,
-                                     bool toPrime) {
+                                     bool prime) {
          lhs = normalize(lhs);
          rhs = normalize(rhs);
 
          lhs.p *= rhs.p;
          lhs.q *= rhs.q;
 
-         if (toPrime) lhs = to_prime(lhs);
+         if (prime) lhs = toPrime(lhs);
 
          return lhs;
       }
 
       // оператор деления
       inline const rmath::real_t div(rmath::real_t lhs, rmath::real_t rhs,
-                                     bool toPrime) {
+                                     bool prime) {
          lhs = normalize(lhs);
          rhs = normalize(rhs);
 
@@ -196,7 +196,7 @@ namespace rmath {
          lhs.p *= rhs.p;
          lhs.q *= rhs.q;
 
-         if (toPrime) lhs = to_prime(lhs);
+         if (prime) lhs = toPrime(lhs);
 
          return lhs;
       }
