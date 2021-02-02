@@ -10,6 +10,16 @@ real8::~real8() {
 
 }
 
+//function
+real8& real8::one(){
+   throw std::exception();
+   return *this;
+}
+
+real8& real8::zero(){
+   throw std::exception();
+   return *this;
+}
 
 
 // operators

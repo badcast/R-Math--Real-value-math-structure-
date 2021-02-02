@@ -8,7 +8,16 @@ real16::real16() {
 
 real16::~real16() {}
 
+//function
+real16& real16::one(){
+   throw std::exception();
+   return *this;
+}
 
+real16& real16::zero(){
+   throw std::exception();
+   return *this;
+}
 
 // operators
 real16::operator float() { return 0; }

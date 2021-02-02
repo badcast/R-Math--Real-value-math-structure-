@@ -4,7 +4,7 @@
 
 namespace rmath {
 
-   typedef class real32 : public core::realbase<0b0100> {
+   typedef class real32 : public core::realbase<0b0100, real32> {
       public:
          int m;  // целое
          int p;  // числитель
@@ -20,6 +20,10 @@ namespace rmath {
          explicit real32(const uint32_t& rhs) : real32(static_cast<uint64_t>(rhs)) {}
          explicit real32(const int64_t& rhs);
          explicit real32(const uint64_t& rhs);
+
+
+         real32& zero();
+         real32& one() ;
 
          real32& operator+=(const real32& rhs);
          real32& operator-=(const real32& rhs);

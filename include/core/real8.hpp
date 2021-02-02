@@ -4,10 +4,15 @@
 
 namespace rmath {
    // real8 contained void* type
-   typedef class real8 : public core::realbase<0b0001> {
+   typedef class real8 : public core::realbase<0b0001, real8> {
       public:
          real8();
          ~real8();
+
+
+         real8& zero();
+         real8& one() ;
+
 
          operator float();
          operator double();

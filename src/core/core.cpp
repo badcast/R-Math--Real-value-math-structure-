@@ -10,7 +10,5 @@ namespace rmath {
          MASK_RESERVED2 = 0x3
       };
 
-
-
    }  // namespace core
 }  // namespace rmath

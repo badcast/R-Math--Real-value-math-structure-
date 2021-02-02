@@ -27,12 +27,12 @@ namespace rmath {
       inline const bool is_int(const rmath::real_t &v, int value);
       inline const bool is_zero(const rmath::real_t &v);
       inline const bool is_one(const rmath::real_t &v);
-      inline const bool right(const rmath::real_t &v);
+      inline const bool is_right(const rmath::real_t &v);
       inline const bool is_normalize(const rmath::real_t &v);
       std::list<uint16_t> get_multipliers(std::size_t value);
-      const std::size_t NOD(std::size_t lhs, std::size_t rhs);
-      const std::size_t NOK(std::size_t lhs, std::size_t rhs);
-      inline const rmath::real_t toPrime(rmath::real_t v);
+      const std::size_t nod(std::size_t lhs, std::size_t rhs);
+      const std::size_t nok(std::size_t lhs, std::size_t rhs);
+      inline const rmath::real_t prime(rmath::real_t v);
       // To normalize value
       inline const rmath::real_t normalize(rmath::real_t v);
       inline const bool eq_lowest(const rmath::real_t &lhs, const rmath::real_t &rhs);

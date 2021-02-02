@@ -3,10 +3,13 @@
 
 namespace rmath {
 
-   typedef class real16 : public core::realbase<0b0010> {
+   typedef class real16 : public core::realbase<0b0010, real16> {
       public:
          real16();
          ~real16();
+
+         real16& zero();
+         real16& one() ;
 
          // operators
          operator float();

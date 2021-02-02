@@ -8,6 +8,17 @@ real24::real24() {
 real24::~real24() {}
 
 
+//function
+real24& real24::one(){
+   throw std::exception();
+   return *this;
+}
+
+real24& real24::zero(){
+   throw std::exception();
+   return *this;
+}
+
 
 // operators
 real24::operator float() { return 0; }

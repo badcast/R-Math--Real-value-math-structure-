@@ -2,10 +2,15 @@
 #include "core.hpp"
 
 namespace rmath{
-    typedef class real24 : public core::realbase<0b0011>{
+    typedef class real24 : public core::realbase<0b0011, real24>{
         public: 
         real24();
         ~real24();
+
+
+        real24& zero();
+        real24& one() ;
+
         // operators
         operator float();
         operator double();

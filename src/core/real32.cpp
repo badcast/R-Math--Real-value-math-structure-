@@ -39,9 +39,21 @@ real32::real32(const double& rhs)
       m = 0;
       p = int(rhs * 1000) - int(rhs * 100);
       q = 900;
-      *this = toPrime(*this);
+      *this = prime(*this);
    }
 }
+
+//function
+real32& real32::one(){
+   throw std::exception();
+   return *this;
+}
+
+real32& real32::zero(){
+   throw std::exception();
+   return *this;
+}
+
 
 // operators
 real32& real32::operator+=(const real32& rhs) { return *this = func::add(*this, rhs); }
