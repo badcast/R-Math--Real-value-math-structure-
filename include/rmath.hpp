@@ -2,9 +2,9 @@
 
 #pragma once
 
-#include <list>
 #include <cstdlib>
 #include <limits>
+#include <list>
 
 #include "core/core.hpp"
 #include "core/operators.hpp"
@@ -12,7 +12,4 @@
 #include "core/real24.hpp"
 #include "core/real32.hpp"
 #include "core/real8.hpp"
-
-namespace rmath {
-
-}  // namespace rmath
+#include "core/RSerializer.hpp"

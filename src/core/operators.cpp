@@ -37,7 +37,9 @@ namespace rmath {
       inline const bool is_nan(const rmath::real_t& v) {
          return !v.m && !v.p && !v.q;
       }
-
+      inline const bool is_int(const rmath::real_t& v) {
+         return !v.m && v.q == 1;
+      }
       inline const bool is_int(const rmath::real_t& v, int value) {
          return !v.m && v.p == value && v.q == 1;
       }
@@ -210,57 +212,54 @@ namespace rmath {
          return static_cast<double>(val.p) / val.q;
       }
 
+      template <typename T>
+      get_value<T>::get_value(const T&) {
+         throw std::bad_cast(); // throw
+      }
+
+      get_value<rmath::real8>::get_value(const ::rmath::real8& value) {
+         this->is_digit10 = (*value._buffer)&0x2;
+         this->is_frac = false;
+         this->is_infinity = false;
+         this->is_negative = (*value._buffer)&0x1;
+         this->x = 0;
+         this->y = 0;
+         this->z = 0;
+         this->result = 0;
+      }
+
+      get_value<rmath::real16>::get_value(const ::rmath::real16& value) {
+         this->is_digit10 = (*value._buffer)&0x2;
+         this->is_frac = false;
+         this->is_infinity = false;
+         this->is_negative = (*value._buffer)&0x1;
+         this->x = 0;
+         this->y = 0;
+         this->z = 0;
+      }
+
+      get_value<rmath::real24>::get_value(const ::rmath::real24& value) {
+         this->is_digit10 = (*value._buffer)&0x2;
+         this->is_frac = false;
+         this->is_infinity = false;
+         this->is_negative = (*value._buffer)&0x1;;
+         this->x = 0;
+         this->y = 0;
+         this->z = 0;
+      }
+
+      get_value<rmath::real32>::get_value(const ::rmath::real32& value) {
+         this->is_digit10 = (*value._buffer)&0x2;
+         this->is_frac = false;
+         this->is_infinity = false;
+         this->is_negative = (*value._buffer)&0x1;
+         this->x = 0;
+         this->y = 0;
+         this->z = 0;
+         this->result = 0;
+      }
+
       // ----------------- operators
-
-      const rmath::real_t operator+(const rmath::real_t& lhs,
-                                    const rmath::real_t& rhs) {
-         return add(lhs, rhs);
-      }
-
-      const rmath::real_t operator-(const rmath::real_t& lhs,
-                                    const rmath::real_t& rhs) {
-         return sub(lhs, rhs);
-      }
-
-      const rmath::real_t operator/(const rmath::real_t& lhs,
-                                    const rmath::real_t& rhs) {
-         return div(lhs, rhs);
-      }
-
-      const rmath::real_t operator*(const rmath::real_t& lhs,
-                                    const rmath::real_t& rhs) {
-         return mul(lhs, rhs, true);
-      }
-
-      const rmath::real_t operator+(const rmath::real_t& lhs, const double& rhs) {
-         rmath::real_t num = lhs + rmath::real_t(rhs);
-         return num;
-      }
-      const rmath::real_t operator-(const rmath::real_t& lhs, const double& rhs) {
-         rmath::real_t num = lhs - rmath::real_t(rhs);
-         return num;
-      }
-      const rmath::real_t operator*(const rmath::real_t& lhs, const double& rhs) {
-         rmath::real_t num = lhs * rmath::real_t(rhs);
-         return num;
-      }
-      const rmath::real_t operator/(const rmath::real_t& lhs, const double& rhs) {
-         rmath::real_t num = lhs / rmath::real_t(rhs);
-         return num;
-      }
-
-      const rmath::real_t operator+(const double& lhs, const rmath::real_t& rhs) {
-         return rhs + lhs;
-      }
-      const rmath::real_t operator-(const double& lhs, const rmath::real_t& rhs) {
-         return rhs - lhs;
-      }
-      const rmath::real_t operator*(const double& lhs, const rmath::real_t& rhs) {
-         return rhs * lhs;
-      }
-      const rmath::real_t operator/(const double& lhs, const rmath::real_t& rhs) {
-         return rhs / lhs;
-      }
 
       const bool operator==(const rmath::real_t& lhs, const rmath::real_t& rhs) {
          double num = to_double(lhs);

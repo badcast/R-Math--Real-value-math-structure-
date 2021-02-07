@@ -56,24 +56,17 @@ real32& real32::zero(){
 
 
 // operators
-real32& real32::operator+=(const real32& rhs) { return *this = func::add(*this, rhs); }
 
-real32& real32::operator-=(const real32& rhs) { return *this = func::sub(*this, rhs); }
-
-real32& real32::operator*=(const real32& rhs) { return *this = func::mul(*this,rhs); }
-
-real32& real32::operator/=(const real32& rhs) { return *this = func::div(*this, rhs); }
-
-real32::operator float() { return static_cast<float>(this->operator double()); }
-real32::operator double() { return func::to_double(*this); }
+real32::operator const float() { return static_cast<float>(this->operator const double()); }
+real32::operator const double() { return func::to_double(*this); }
 
 // signed section
-real32::operator std::int8_t() { return 0; }
-real32::operator std::int16_t() { return 0; }
-real32::operator std::int64_t() { return 0; }
-real32::operator std::int32_t() { return 0; }
+real32::operator const std::int8_t() { return 0; }
+real32::operator const std::int16_t() { return 0; }
+real32::operator const std::int64_t() { return 0; }
+real32::operator const std::int32_t() { return 0; }
 // unsigned section
-real32::operator std::uint8_t() { return 0; }
-real32::operator std::uint16_t() { return 0; }
-real32::operator std::uint32_t() { return 0; }
-real32::operator std::uint64_t() { return 0; }
+real32::operator const std::uint8_t() { return 0; }
+real32::operator const std::uint16_t() { return 0; }
+real32::operator const std::uint32_t() { return 0; }
+real32::operator const std::uint64_t() { return 0; }

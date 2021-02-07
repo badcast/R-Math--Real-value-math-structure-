@@ -21,9 +21,8 @@ namespace rmath {
          explicit real32(const int64_t& rhs);
          explicit real32(const uint64_t& rhs);
 
-
          real32& zero();
-         real32& one() ;
+         real32& one();
 
          real32& operator+=(const real32& rhs);
          real32& operator-=(const real32& rhs);
@@ -31,21 +30,20 @@ namespace rmath {
          real32& operator/=(const real32& rhs);
 
          // operators
-         operator float();
-         operator double();
+         operator const float();
+         operator const double();
 
          // signed section
-         operator std::int8_t();
-         operator std::int16_t();
-         operator std::int64_t();
-         operator std::int32_t();
+         operator const std::int8_t();
+         operator const std::int16_t();
+         operator const std::int64_t();
+         operator const std::int32_t();
 
          // unsigned section
-         operator std::uint8_t();
-         operator std::uint16_t();
-         operator std::uint32_t();
-         operator std::uint64_t();
+         operator const std::uint8_t();
+         operator const std::uint16_t();
+         operator const std::uint32_t();
+         operator const std::uint64_t();
    } real_t, real32_t;
-
 
 }  // namespace rmath

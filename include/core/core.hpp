@@ -4,37 +4,66 @@
 #include <cstdint>
 
 namespace rmath {
-namespace core {
-template <const int _size, typename _Derived>
-class realbase {  // abstract class
-    using type = _Derived;
+   class real8;
+   class real16;
+   class real24;
+   class real32;
+   class real64;
 
-   protected:
-    int8_t _buffer[_size];
+   namespace func {
+      template <typename type>
+      struct get_value;
 
-   public:
-    const std::size_t size(){
-       return _size;
-    }
+      template <>
+      struct get_value<::rmath::real8>;
 
-    virtual type& zero() = 0;
-    virtual type& one() = 0;
+      template <>
+      struct get_value<::rmath::real16>;
 
-    // operators
-    virtual operator float() = 0;
-    virtual operator double() = 0;
+      template <>
+      struct get_value<::rmath::real24>;
 
-    // signed section
-    virtual operator std::int8_t() = 0;
-    virtual operator std::int16_t() = 0;
-    virtual operator std::int64_t() = 0;
-    virtual operator std::int32_t() = 0;
+      template <>
+      struct get_value<::rmath::real32>;
 
-    // unsigned section
-    virtual operator std::uint8_t() = 0;
-    virtual operator std::uint16_t() = 0;
-    virtual operator std::uint32_t() = 0;
-    virtual operator std::uint64_t() = 0;
-};
-}  // namespace core
+   }  // namespace func
+}  // namespace rmath
+
+namespace rmath {
+
+   namespace core {
+      template <typename T>
+      class RSerializer;
+      template <>
+      class RSerializer<::rmath::real8>;
+      template <>
+      class RSerializer<::rmath::real16>;
+      template <>
+      class RSerializer<::rmath::real24>;
+      template <>
+      class RSerializer<::rmath::real32>;
+
+
+      template <const int _size, typename _Derived>
+      class realbase {  // abstract class
+            using type = _Derived;
+
+            friend class ::rmath::core::RSerializer<::rmath::real8>;
+            friend class ::rmath::core::RSerializer<::rmath::real16>;
+            friend class ::rmath::core::RSerializer<::rmath::real24>;
+            friend class ::rmath::core::RSerializer<::rmath::real32>;
+
+            friend struct ::rmath::func::get_value<::rmath::real8>;
+            friend struct ::rmath::func::get_value<::rmath::real16>;
+            friend struct ::rmath::func::get_value<::rmath::real24>;
+            friend struct ::rmath::func::get_value<::rmath::real32>;
+
+         protected:
+            int8_t _buffer[_size];
+
+         public:
+            static const std::size_t size() { return _size; }
+
+      };
+   }  // namespace core
 }  // namespace rmath
