@@ -1,4 +1,5 @@
 #include "../../include/rmath.hpp"
+#include "../../include/core/RSerializer.hpp"
 
 using namespace rmath;
 

@@ -30,7 +30,7 @@ void get_member_real(int8_t source[N], int& x, int& y) {
       } while (w < z);
 
       do {
-      } while ();
+      } while (false);
    }
    if ((*source) & RealContainerMask::MASK_NEGATIVE) x *= -1;
 }
