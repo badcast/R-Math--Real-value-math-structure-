@@ -31,7 +31,7 @@ namespace rmath {
 
          // operators
          operator const float();
-         operator const double();
+         operator const double() const;
 
          // signed section
          operator const std::int8_t();
